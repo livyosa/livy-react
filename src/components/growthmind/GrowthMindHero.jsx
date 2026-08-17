@@ -29,7 +29,7 @@ export default function Hero() {
     transition={{ duration: 0.8, ease: "easeOut" }}
     className="max-w-xl"
   >
-    <h1 className="text-5xl md:text-6xl font-bold mb-4">
+    <h1 className="text-5xl md:text-6xl mb-4 text-[#3f5c34]" style={{ fontFamily: "'Pacifico', cursive" }}>
       GrowthMind
     </h1>
 <p className="text-neutral-700 text-lg">

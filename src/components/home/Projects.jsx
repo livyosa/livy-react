@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import growthmindDefault from "../../assets/images/growthmind-default.png";
+import growthmindHover from "../../assets/images/growthmind-hover.png";
 
 export default function Projects() {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <section
       id="projects-section"
@@ -17,15 +23,37 @@ export default function Projects() {
           PROJECTS
         </motion.h2>
 
-        <motion.p
-          className="text-gray-400 text-sm tracking-wide"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.4 }}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          Case studies coming soon.
-        </motion.p>
+          <Link
+            to="/growthmind"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            className="block rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+          >
+            <img
+              src={hovered ? growthmindHover : growthmindDefault}
+              alt="GrowthMind — habit tracking app case study"
+              className="w-full h-auto"
+            />
+          </Link>
+          <div className="flex items-center justify-between mt-4">
+            <div>
+              <h3 className="font-bold text-lg text-gray-800">GrowthMind</h3>
+              <p className="text-sm text-gray-500">UX/UI case study — habit tracking app</p>
+            </div>
+            <Link
+              to="/growthmind"
+              className="text-sm font-semibold text-[#3f5c34] hover:text-[#2f4a2c] transition-colors whitespace-nowrap"
+            >
+              View case study →
+            </Link>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

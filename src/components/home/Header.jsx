@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-
 export default function Header() {
-  const navLinks = ["Projects", "Contact"];
+  const navLinks = [
+    { label: "Projects", target: "projects-section" },
+    { label: "Contact", target: "contact-section" },
+  ];
 
   const variants = {
     hidden: { opacity: 0, y: -10 },
@@ -14,18 +16,17 @@ export default function Header() {
     }),
   };
 
-  // If on homepage, scroll to top. If on other page, go home.
-const handleLogoClick = () => {
-  setTimeout(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, 0);
-};
+  const scrollToSection = (target) => {
+    document.getElementById(target)?.scrollIntoView({ behavior: "smooth" });
+  };
 
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 w-full z-[999] bg-[#f8f8f8] shadow-md py-4">
       <div className="max-w-[62.5rem] mx-auto flex justify-between items-center px-6">
-        {/* Logo with fade-in */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -40,27 +41,23 @@ const handleLogoClick = () => {
           </Link>
         </motion.div>
 
-        {/* Animated navigation links */}
         <nav>
           <ul className="flex list-none gap-10">
-            {navLinks.map((text, i) => (
+            {navLinks.map((item, i) => (
               <motion.li
-                key={text}
+                key={item.label}
                 custom={i}
                 initial="hidden"
                 animate="visible"
                 variants={variants}
               >
-                <a
-                  href={
-                    text === "Projects"
-                      ? "#projects-section"
-                      : "#contact-section"
-                  }
-                  className="text-gray-800 no-underline font-semibold hover:text-gray-400 transition-colors"
+                <button
+                  type="button"
+                  onClick={() => scrollToSection(item.target)}
+                  className="text-gray-800 font-semibold hover:text-gray-400 transition-colors bg-transparent border-0 p-0 cursor-pointer"
                 >
-                  {text}
-                </a>
+                  {item.label}
+                </button>
               </motion.li>
             ))}
           </ul>
