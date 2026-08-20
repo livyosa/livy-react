@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import growthmindDefault from "../../assets/images/growthmind-default.png";
-import growthmindHover from "../../assets/images/growthmind-hover.png";
+import growthmindDefault from "../../assets/images/banner/growthmind-default.png";
+import growthmindHover from "../../assets/images/banner/growthmind-hover.png";
 
 export default function Projects() {
   const [hovered, setHovered] = useState(false);
