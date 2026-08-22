@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-<section className="relative h-screen overflow-hidden bg-[#FFF6DB] text-neutral-900 flex items-center justify-center">
+<section className="relative min-h-screen overflow-hidden bg-[#FFF6DB] text-neutral-900 flex items-start justify-center pt-28 md:pt-32 pb-12">
       
       {/* Floating background */}
       <motion.div

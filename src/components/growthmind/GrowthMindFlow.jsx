@@ -3,8 +3,8 @@ import flow from "../../assets/images/growthmind-flow.png";
 
 export default function GrowthMindFlow() {
   return (
-    <section className="bg-[#FFF6DB] py-24">
-      <div className="max-w-[62.5rem] mx-auto px-6">
+    <section className="bg-[#FFF0C8] py-24">
+      <div className="max-w-[68rem] mx-auto px-6">
         <motion.h2
           className="font-extrabold text-2xl tracking-[0.15em] text-gray-800 mb-3"
           initial={{ x: -40, opacity: 0 }}
@@ -14,13 +14,14 @@ export default function GrowthMindFlow() {
         >
           USER FLOW
         </motion.h2>
-        <p className="text-gray-600 max-w-xl mb-10">
+
+        <p className="text-gray-600 max-w-2xl mb-10">
           Mapping every path — planting a habit, logging progress, running a focus
           session — before any screens were drawn kept the feature set from sprawling.
         </p>
 
-        <motion.div
-          className="bg-white rounded-2xl p-4 md:p-6 overflow-x-auto"
+        <motion.figure
+          className="overflow-x-auto"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -29,9 +30,9 @@ export default function GrowthMindFlow() {
           <img
             src={flow}
             alt="GrowthMind user flow diagram"
-            className="min-w-[700px] w-full"
+            className="block min-w-[760px] w-full h-auto"
           />
-        </motion.div>
+        </motion.figure>
       </div>
     </section>
   );

@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import heroImg from "../../assets/images/hero.png";
 
 export default function Hero() {
   const scrollToProjects = () => {
@@ -7,43 +6,39 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative pt-32 pb-20 bg-[#fafafa] overflow-hidden">
-      <div className="max-w-[62.5rem] mx-auto px-6 flex items-center justify-between gap-12">
+    <section className="relative pt-36 pb-28 bg-[#fafafa] overflow-hidden">
+      <div className="max-w-[62.5rem] mx-auto px-6">
         <motion.div
-          className="flex-1 max-w-lg md:w-[55%]"
-          initial={{ x: -80, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          className="max-w-3xl"
+          initial={{ y: 28, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="font-extrabold text-5xl tracking-widest text-gray-800 mb-5">
+          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gray-400 mb-4">
+            Designer + Builder
+          </p>
+
+          <h1 className="font-extrabold text-5xl md:text-6xl tracking-[0.12em] text-gray-800 mb-6">
             OLIVIA TANG
           </h1>
-          <p className="text-xl text-gray-500 mb-5 leading-relaxed">
-            UI &amp; UX Designer
+
+          <p className="text-xl md:text-2xl text-gray-600 mb-3 leading-relaxed">
+            UI/UX Designer · Front-End Developer · QA
           </p>
+
+          <p className="text-base md:text-lg text-gray-500 max-w-2xl leading-relaxed mb-8">
+            I design clear interfaces and build them into responsive, usable products.
+          </p>
+
           <motion.button
             type="button"
             onClick={scrollToProjects}
-            className="inline-block px-8 py-3 font-semibold text-gray-500 border border-gray-400 rounded-md bg-white hover:bg-gray-600 hover:text-white transition-all duration-300 cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center px-6 py-3 font-semibold text-gray-700 border border-gray-300 rounded-md bg-transparent hover:bg-gray-800 hover:text-white hover:border-gray-800 transition-all duration-300 cursor-pointer"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.98 }}
           >
             View Projects
           </motion.button>
-        </motion.div>
-
-        <motion.div
-          className="flex-shrink-0 flex justify-center md:w-[40%] w-full"
-          initial={{ x: 80, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          <img
-            src={heroImg}
-            alt="Olivia Tang"
-            className="w-full max-w-[16rem] h-auto opacity-80"
-            loading="lazy"
-          />
         </motion.div>
       </div>
     </section>
